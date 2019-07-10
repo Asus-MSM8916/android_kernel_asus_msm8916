@@ -9,8 +9,8 @@ do.devicecheck=1
 do.modules=0
 do.cleanup=1
 do.cleanuponabort=1
-device.name1=Z010D
-device.name2=Z010DD
+device.name1=Z00ED
+device.name2=
 device.name3=
 device.name4=
 device.name5=
@@ -52,14 +52,7 @@ case "$soc_id" in
     "206" | "247" | "248" | "249" | "250")
 		# Apply MSM8916 specific gunmetal profiles
 		# insert init.gunmetal.rc in init.rc
-		rm /tmp/anykernel/ramdisk/init.gunmetal.8939.rc
-		mv /tmp/anykernel/ramdisk/init.gunmetal.8916.rc /tmp/anykernel/ramdisk/init.gunmetal.rc
-	;;
-    "239" | "241" | "263" | "268" | "269" | "270" | "271")
-		# Apply MSM8939 specific gunmetal support.
-		# insert init.gunmetal.rc in init.rc
-		rm /tmp/anykernel/ramdisk/init.gunmetal.8916.rc
-		mv /tmp/anykernel/ramdisk/init.gunmetal.8939.rc /tmp/anykernel/ramdisk/init.gunmetal.rc
+		mv /tmp/anykernel/ramdisk/init.gunmetal.rc /tmp/anykernel/ramdisk/init.gunmetal.rc
 	;;
 esac
 cp /tmp/anykernel/ramdisk/1-setprop.sh /system/etc/init.d/1-setprop.sh
