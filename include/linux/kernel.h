@@ -98,13 +98,13 @@ extern enum BOOT_MODE g_ASUS_bootmode;
 // --- ASUS_BSP : add for boot mode
 
 //ASUS_BSP: Louis +++
-enum {
+/*enum {
 	ZE500KL_LCD_AUO = 0,
 	ZE500KL_LCD_TIANMA,
 	ZE500KL_LCD_BOE,
 	A500_HSD
 };
-extern int g_asus_lcdID; 
+extern int g_asus_lcdID; */
 //ASUS_BSP: Louis ---
 
 extern bool g_Charger_mode; //ASUS BSP Austin_T +++
