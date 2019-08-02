@@ -10,10 +10,10 @@ do.modules=0
 do.cleanup=1
 do.cleanuponabort=1
 device.name1=Z00ED
-device.name2=
-device.name3=
-device.name4=
-device.name5=
+device.name2=Z00E
+device.name3=Z00E_2
+device.name4=ASUS_Z00ED
+device.name5=ASUS_Z00E_2
 supported.versions=6.0-9.0
 '; } # end properties
 
