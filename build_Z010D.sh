@@ -10,11 +10,11 @@ nocol='\033[0m'
 
 # Kernel details
 KERNEL_NAME="GunMetal™"
-VERSION="R5"
+VERSION="R6"
 DATE=$(date +"%d-%m-%Y-%I-%M")
 DEVICE="Z010D"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
-BRANCH="9.x-wip"
+BRANCH="9.x-staging"
 defconfig=zc550kl-custom_defconfig
 
 # Dirs

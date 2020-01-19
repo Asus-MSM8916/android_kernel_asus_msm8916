@@ -10,21 +10,21 @@ nocol='\033[0m'
 
 # Kernel details
 KERNEL_NAME="GunMetal™"
-VERSION="R4"
+VERSION="R6"
 DATE=$(date +"%d-%m-%Y-%I-%M")
 DEVICE="Z00ED"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
 defconfig=ze500kl-custom_defconfig
 
 # Dirs
-KERNEL_DIR=/home/dmitry/android_kernel_gunmetal/
+KERNEL_DIR=$(pwd)
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel3
 KERNEL_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb
-UPLOAD_DIR=/home/dmitry/out
+UPLOAD_DIR=$KERNEL_DIR/..
 
 # Export
 export ARCH=arm64
-export CROSS_COMPILE="/home/dmitry/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
+export CROSS_COMPILE=$KERNEL_DIR/aarch64-elf/bin/aarch64-elf-
 
 # Toolchain Used: https://github.com/kdrag0n/aarch64-elf-gcc
 
