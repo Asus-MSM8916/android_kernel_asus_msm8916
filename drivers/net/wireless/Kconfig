@@ -17,6 +17,12 @@ menuconfig WLAN
 
 if WLAN
 
+config ZE500KL_NVBIN_FILE
+	default n
+        ---help---
+	 Say Y here if you use WCNSS_qcom_wlan_nv_ze500kl.bin instead WCNSS_qcom_wlan_nv.bin
+	 Only for ZE500KL
+
 config PCMCIA_RAYCS
 	tristate "Aviator/Raytheon 2.4GHz wireless support"
 	depends on PCMCIA
