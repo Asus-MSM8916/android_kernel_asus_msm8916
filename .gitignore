@@ -95,3 +95,4 @@ x509.genkey
 # fetched Android config fragments
 android/configs/android-*.cfg
 out/
+aarch64-elf-gcc/
