@@ -12,23 +12,27 @@ nocol='\033[0m'
 KERNEL_NAME="GunMetal™"
 VERSION="R6"
 DATE=$(date +"%d-%m-%Y-%I-%M")
-DEVICE="Z00ED"
+DEVICE="Z00xD"
 FINAL_ZIP=$KERNEL_NAME-$VERSION-$DATE-$DEVICE.zip
+BRANCH="9.x-staging"
 defconfig=ze500kl-custom_defconfig
 
 # Dirs
 KERNEL_DIR=$(pwd)
 ANYKERNEL_DIR=$KERNEL_DIR/AnyKernel3
 KERNEL_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb
-UPLOAD_DIR=$KERNEL_DIR/..
+UPLOAD_DIR=$(pwd)/out-zip/
 
 # Export
 export ARCH=arm64
-export CROSS_COMPILE=$KERNEL_DIR/aarch64-elf/bin/aarch64-elf-
+export CROSS_COMPILE=$(pwd)/aarch64-elf-gcc/bin/aarch64-elf-
 
 # Toolchain Used: https://github.com/kdrag0n/aarch64-elf-gcc
-
 ## Functions ##
+# Clone
+# Toolchain
+git clone https://github.com/kdrag0n/aarch64-elf-gcc
+ranlib $(pwd)/aarch64-elf-gcc/lib/gcc/aarch64-elf/9.1.0/libgcc.a
 
 # Make kernel
   echo -e "$cyan***********************************************"
@@ -41,7 +45,8 @@ make O=out $defconfig
   echo -e "             Building kernel          "
   echo -e "***********************************************$nocol"
 
-make O=out -j8
+make O=out -j$(nproc --all) || echo "Build Failed!
+Go and fix errors!" && exit
 
 # Making zip
 function make_zip() {
@@ -50,6 +55,9 @@ mkdir -p $UPLOAD_DIR
 cd $ANYKERNEL_DIR
 zip -r9 UPDATE-AnyKernel3.zip *
 mv $ANYKERNEL_DIR/UPDATE-AnyKernel3.zip $UPLOAD_DIR/$FINAL_ZIP
+Version: $VERSION
+Date: $DATE
+Branch: $BRANCH
 }
 
      echo -e "$cyan***********************************************"
