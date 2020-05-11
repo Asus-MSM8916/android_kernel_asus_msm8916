@@ -1,6 +1,4 @@
-ifeq ($(CONFIG_ASH_HALL),y)
 obj-y += HALLsensor.o
-endif
 obj-y += IRsensor.o
 
 DEBUG = n
