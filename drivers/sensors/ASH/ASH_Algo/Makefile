@@ -1,4 +1,4 @@
-#obj-y += HALLsensor.o
+obj-y += HALLsensor.o
 obj-y += IRsensor.o
 
 DEBUG = n

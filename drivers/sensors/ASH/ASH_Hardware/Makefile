@@ -1,6 +1,6 @@
 obj-y += ASH_Hardware.o
 obj-y += IRsensor_Hardware/
-#obj-y += HALLsensor_Hardware.o
+obj-y += HALLsensor_Hardware.o
 
 DEBUG = n
 
