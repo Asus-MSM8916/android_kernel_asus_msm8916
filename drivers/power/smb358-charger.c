@@ -806,7 +806,7 @@ void SET_VCH_VALUE(struct work_struct *dat){
 			BAT_DBG("In ER2, Battery ID is out of range. ");
 			BAT_DBG("Temperary Default: 4340mV (Should Set Charging Disable)\n");
 			Batt_ID_ERROR=true;
-			ASUSEvtlog("[BAT] Charger Fault: Wrong Battery ID!\n");
+			printk("[BAT] Charger Fault: Wrong Battery ID!\n");
 		}
 	}else{ /*BSP Clay: Before ER2 */
 		if( (battID <= 1500000 && battID >= 1200000) || (battID <= 900000 && battID >= 500000) ){
@@ -1823,7 +1823,7 @@ static int asus_print_all(void)
 	snprintf(battInfo, sizeof(battInfo), "%sReg:%s\n",
 		battInfo,
 		chargerReg);
-	ASUSEvtlog("[BAT][Ser]%s", battInfo);
+	//ASUSEvtlog("[BAT][Ser]%s", battInfo);
 	BAT_DBG("%s", battInfo);
 	g_last_print_time = current_kernel_time();
 	return 0;
@@ -2775,9 +2775,9 @@ static int smb358_charger_probe(struct i2c_client *client,
 	struct device_node *np = dev->of_node;
 
 	printk("%s++\n", __FUNCTION__);
-	if (g_Charger_mode){
+	/*if (g_Charger_mode){
 		ASUSEvtlog("[Charger] ===== enter charger mode ====\n");
-	}
+	}*/
 	chip = devm_kzalloc(&client->dev, sizeof(*chip), GFP_KERNEL);
 	if (!chip) {
 		dev_err(&client->dev, "Couldn't allocate memory\n");
